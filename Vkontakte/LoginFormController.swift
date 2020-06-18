@@ -14,11 +14,6 @@ class LoginFormController: UIViewController {
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func signinPressed(_ sender: UIButton) {
-        guard let login = loginTextField.text, let password = passwordTextField.text else { return }
-        print("login: \(login), password: \(password)")
-    }
-    
     @IBAction func fogotPasswordPressed(_ sender: UIButton) {
         print(#function)
     }
@@ -61,6 +56,31 @@ class LoginFormController: UIViewController {
     @IBAction func scrollTaped(_ gesture: UIGestureRecognizer) {
         scrollView.endEditing(true)
     }
-
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "Home" {
+            let isValid = checkUserData()
+            if !isValid {
+                showErrorAlert()
+            }
+            return isValid
+        }
+        return true
+    }
+    
+    func checkUserData() -> Bool {
+        return loginTextField.text == "user" && passwordTextField.text == "0000"
+    }
+    
+    func showErrorAlert() {
+        let alert = UIAlertController(
+            title: "Ошибка",
+            message: "Неправильный логин или пароль",
+            preferredStyle: .alert
+        )
+        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
