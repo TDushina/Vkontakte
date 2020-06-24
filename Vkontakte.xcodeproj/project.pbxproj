@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8282F0A24A0B87B001EF693 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8282F0924A0B87B001EF693 /* PhotoCollectionViewController.swift */; };
+		C8282F0C24A0B95E001EF693 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8282F0B24A0B95E001EF693 /* PhotoCell.swift */; };
+		C83C0B05249FF9D400754F32 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C0B04249FF9D400754F32 /* User.swift */; };
+		C83C0B0724A007BA00754F32 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C0B0624A007BA00754F32 /* FriendsTableViewController.swift */; };
+		C83C0B0924A00A1D00754F32 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C0B0824A00A1D00754F32 /* UserTableViewCell.swift */; };
+		C83C0B0B24A010E700754F32 /* ModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C0B0A24A010E700754F32 /* ModelUser.swift */; };
+		C866BFEE24A36D6C00B207AD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFED24A36D6C00B207AD /* Group.swift */; };
+		C866BFF024A36DE100B207AD /* ModelGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFEF24A36DE100B207AD /* ModelGroup.swift */; };
+		C866BFF324A36FE100B207AD /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFF224A36FE100B207AD /* MyGroupsViewController.swift */; };
+		C866BFF524A3702000B207AD /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFF424A3702000B207AD /* AllGroupsViewController.swift */; };
+		C866BFF724A3717000B207AD /* MyGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFF624A3717000B207AD /* MyGroupCell.swift */; };
+		C866BFF924A3753E00B207AD /* AllGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFF824A3753E00B207AD /* AllGroupCell.swift */; };
 		C882AE2324994904003D7F17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882AE2224994904003D7F17 /* AppDelegate.swift */; };
 		C882AE2724994904003D7F17 /* LoginFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882AE2624994904003D7F17 /* LoginFormController.swift */; };
 		C882AE2A24994904003D7F17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C882AE2824994904003D7F17 /* Main.storyboard */; };
@@ -15,6 +27,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C8282F0924A0B87B001EF693 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
+		C8282F0B24A0B95E001EF693 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		C83C0B04249FF9D400754F32 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C83C0B0624A007BA00754F32 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
+		C83C0B0824A00A1D00754F32 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		C83C0B0A24A010E700754F32 /* ModelUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUser.swift; sourceTree = "<group>"; };
+		C866BFED24A36D6C00B207AD /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		C866BFEF24A36DE100B207AD /* ModelGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGroup.swift; sourceTree = "<group>"; };
+		C866BFF224A36FE100B207AD /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
+		C866BFF424A3702000B207AD /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
+		C866BFF624A3717000B207AD /* MyGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupCell.swift; sourceTree = "<group>"; };
+		C866BFF824A3753E00B207AD /* AllGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupCell.swift; sourceTree = "<group>"; };
 		C882AE1F24994904003D7F17 /* Vkontakte.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vkontakte.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C882AE2224994904003D7F17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C882AE2624994904003D7F17 /* LoginFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormController.swift; sourceTree = "<group>"; };
@@ -35,6 +59,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C8282F0D24A1283C001EF693 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				C83C0B0624A007BA00754F32 /* FriendsTableViewController.swift */,
+				C83C0B0824A00A1D00754F32 /* UserTableViewCell.swift */,
+			);
+			path = Friends;
+			sourceTree = "<group>";
+		};
+		C8282F0E24A12870001EF693 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				C8282F0924A0B87B001EF693 /* PhotoCollectionViewController.swift */,
+				C8282F0B24A0B95E001EF693 /* PhotoCell.swift */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		C83C0B03249FF91800754F32 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C83C0B04249FF9D400754F32 /* User.swift */,
+				C83C0B0A24A010E700754F32 /* ModelUser.swift */,
+				C866BFED24A36D6C00B207AD /* Group.swift */,
+				C866BFEF24A36DE100B207AD /* ModelGroup.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C866BFF124A36F8600B207AD /* Groups */ = {
+			isa = PBXGroup;
+			children = (
+				C866BFF224A36FE100B207AD /* MyGroupsViewController.swift */,
+				C866BFF624A3717000B207AD /* MyGroupCell.swift */,
+				C866BFF424A3702000B207AD /* AllGroupsViewController.swift */,
+				C866BFF824A3753E00B207AD /* AllGroupCell.swift */,
+			);
+			path = Groups;
+			sourceTree = "<group>";
+		};
 		C882AE1624994904003D7F17 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +120,10 @@
 			children = (
 				C882AE2224994904003D7F17 /* AppDelegate.swift */,
 				C882AE2624994904003D7F17 /* LoginFormController.swift */,
+				C83C0B03249FF91800754F32 /* Model */,
+				C8282F0D24A1283C001EF693 /* Friends */,
+				C8282F0E24A12870001EF693 /* Photos */,
+				C866BFF124A36F8600B207AD /* Groups */,
 				C882AE2824994904003D7F17 /* Main.storyboard */,
 				C882AE2B24994907003D7F17 /* Assets.xcassets */,
 				C882AE2D24994907003D7F17 /* LaunchScreen.storyboard */,
@@ -135,8 +203,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C866BFEE24A36D6C00B207AD /* Group.swift in Sources */,
+				C866BFF324A36FE100B207AD /* MyGroupsViewController.swift in Sources */,
+				C866BFF724A3717000B207AD /* MyGroupCell.swift in Sources */,
+				C8282F0C24A0B95E001EF693 /* PhotoCell.swift in Sources */,
+				C83C0B0B24A010E700754F32 /* ModelUser.swift in Sources */,
+				C866BFF524A3702000B207AD /* AllGroupsViewController.swift in Sources */,
 				C882AE2724994904003D7F17 /* LoginFormController.swift in Sources */,
 				C882AE2324994904003D7F17 /* AppDelegate.swift in Sources */,
+				C8282F0A24A0B87B001EF693 /* PhotoCollectionViewController.swift in Sources */,
+				C83C0B0724A007BA00754F32 /* FriendsTableViewController.swift in Sources */,
+				C866BFF924A3753E00B207AD /* AllGroupCell.swift in Sources */,
+				C83C0B05249FF9D400754F32 /* User.swift in Sources */,
+				C83C0B0924A00A1D00754F32 /* UserTableViewCell.swift in Sources */,
+				C866BFF024A36DE100B207AD /* ModelGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
