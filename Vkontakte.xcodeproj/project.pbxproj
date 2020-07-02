@@ -12,9 +12,7 @@
 		C83C0B05249FF9D400754F32 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C0B04249FF9D400754F32 /* User.swift */; };
 		C83C0B0724A007BA00754F32 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C0B0624A007BA00754F32 /* FriendsTableViewController.swift */; };
 		C83C0B0924A00A1D00754F32 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C0B0824A00A1D00754F32 /* UserTableViewCell.swift */; };
-		C83C0B0B24A010E700754F32 /* ModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C0B0A24A010E700754F32 /* ModelUser.swift */; };
 		C866BFEE24A36D6C00B207AD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFED24A36D6C00B207AD /* Group.swift */; };
-		C866BFF024A36DE100B207AD /* ModelGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFEF24A36DE100B207AD /* ModelGroup.swift */; };
 		C866BFF324A36FE100B207AD /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFF224A36FE100B207AD /* MyGroupsViewController.swift */; };
 		C866BFF524A3702000B207AD /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFF424A3702000B207AD /* AllGroupsViewController.swift */; };
 		C866BFF724A3717000B207AD /* MyGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFF624A3717000B207AD /* MyGroupCell.swift */; };
@@ -32,9 +30,7 @@
 		C83C0B04249FF9D400754F32 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C83C0B0624A007BA00754F32 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		C83C0B0824A00A1D00754F32 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		C83C0B0A24A010E700754F32 /* ModelUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUser.swift; sourceTree = "<group>"; };
 		C866BFED24A36D6C00B207AD /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		C866BFEF24A36DE100B207AD /* ModelGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGroup.swift; sourceTree = "<group>"; };
 		C866BFF224A36FE100B207AD /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		C866BFF424A3702000B207AD /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
 		C866BFF624A3717000B207AD /* MyGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupCell.swift; sourceTree = "<group>"; };
@@ -59,44 +55,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C8282F0D24A1283C001EF693 /* Friends */ = {
+		C8322A1324A4F14B00645B73 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				C882AE2224994904003D7F17 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C8322A1424A4F16800645B73 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C882AE2624994904003D7F17 /* LoginFormController.swift */,
 				C83C0B0624A007BA00754F32 /* FriendsTableViewController.swift */,
-				C83C0B0824A00A1D00754F32 /* UserTableViewCell.swift */,
+				C8282F0924A0B87B001EF693 /* PhotoCollectionViewController.swift */,
+				C866BFF424A3702000B207AD /* AllGroupsViewController.swift */,
+				C866BFF224A36FE100B207AD /* MyGroupsViewController.swift */,
 			);
-			path = Friends;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		C8282F0E24A12870001EF693 /* Photos */ = {
+		C8322A1524A4F2CF00645B73 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C8282F0924A0B87B001EF693 /* PhotoCollectionViewController.swift */,
-				C8282F0B24A0B95E001EF693 /* PhotoCell.swift */,
+				C882AE2B24994907003D7F17 /* Assets.xcassets */,
+				C882AE2D24994907003D7F17 /* LaunchScreen.storyboard */,
 			);
-			path = Photos;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		C83C0B03249FF91800754F32 /* Model */ = {
+		C8322A1624A4F3CD00645B73 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C8322A1724A4F3D500645B73 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C8322A1724A4F3D500645B73 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C83C0B0824A00A1D00754F32 /* UserTableViewCell.swift */,
+				C8282F0B24A0B95E001EF693 /* PhotoCell.swift */,
+				C866BFF624A3717000B207AD /* MyGroupCell.swift */,
+				C866BFF824A3753E00B207AD /* AllGroupCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C83C0B03249FF91800754F32 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				C83C0B04249FF9D400754F32 /* User.swift */,
-				C83C0B0A24A010E700754F32 /* ModelUser.swift */,
 				C866BFED24A36D6C00B207AD /* Group.swift */,
-				C866BFEF24A36DE100B207AD /* ModelGroup.swift */,
 			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		C866BFF124A36F8600B207AD /* Groups */ = {
-			isa = PBXGroup;
-			children = (
-				C866BFF224A36FE100B207AD /* MyGroupsViewController.swift */,
-				C866BFF624A3717000B207AD /* MyGroupCell.swift */,
-				C866BFF424A3702000B207AD /* AllGroupsViewController.swift */,
-				C866BFF824A3753E00B207AD /* AllGroupCell.swift */,
-			);
-			path = Groups;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C882AE1624994904003D7F17 = {
@@ -118,16 +131,13 @@
 		C882AE2124994904003D7F17 /* Vkontakte */ = {
 			isa = PBXGroup;
 			children = (
-				C882AE2224994904003D7F17 /* AppDelegate.swift */,
-				C882AE2624994904003D7F17 /* LoginFormController.swift */,
-				C83C0B03249FF91800754F32 /* Model */,
-				C8282F0D24A1283C001EF693 /* Friends */,
-				C8282F0E24A12870001EF693 /* Photos */,
-				C866BFF124A36F8600B207AD /* Groups */,
-				C882AE2824994904003D7F17 /* Main.storyboard */,
-				C882AE2B24994907003D7F17 /* Assets.xcassets */,
-				C882AE2D24994907003D7F17 /* LaunchScreen.storyboard */,
 				C882AE3024994907003D7F17 /* Info.plist */,
+				C882AE2824994904003D7F17 /* Main.storyboard */,
+				C8322A1324A4F14B00645B73 /* App */,
+				C8322A1524A4F2CF00645B73 /* Resources */,
+				C83C0B03249FF91800754F32 /* Models */,
+				C8322A1424A4F16800645B73 /* Controllers */,
+				C8322A1624A4F3CD00645B73 /* Views */,
 			);
 			path = Vkontakte;
 			sourceTree = "<group>";
@@ -207,7 +217,6 @@
 				C866BFF324A36FE100B207AD /* MyGroupsViewController.swift in Sources */,
 				C866BFF724A3717000B207AD /* MyGroupCell.swift in Sources */,
 				C8282F0C24A0B95E001EF693 /* PhotoCell.swift in Sources */,
-				C83C0B0B24A010E700754F32 /* ModelUser.swift in Sources */,
 				C866BFF524A3702000B207AD /* AllGroupsViewController.swift in Sources */,
 				C882AE2724994904003D7F17 /* LoginFormController.swift in Sources */,
 				C882AE2324994904003D7F17 /* AppDelegate.swift in Sources */,
@@ -216,7 +225,6 @@
 				C866BFF924A3753E00B207AD /* AllGroupCell.swift in Sources */,
 				C83C0B05249FF9D400754F32 /* User.swift in Sources */,
 				C83C0B0924A00A1D00754F32 /* UserTableViewCell.swift in Sources */,
-				C866BFF024A36DE100B207AD /* ModelGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

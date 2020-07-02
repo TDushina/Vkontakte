@@ -10,7 +10,7 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
     
-    var modelUser = ModelUser()
+    var users = User.users
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,16 +22,26 @@ class FriendsTableViewController: UITableViewController {
 extension FriendsTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return modelUser.users.count
+        return users.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
-        let user = modelUser.users[indexPath.row]
+        let user = users[indexPath.row]
         
         cell.userName.text = user.nameUser
-        cell.userImageView.image = user.imageUser
+        cell.userImageView.image = user.avatar
 
         return cell
+    }
+    
+    // передача данных (фото)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? PhotoCollectionViewController, let index = tableView.indexPathForSelectedRow?.row {
+            
+            let user = users[index]
+            controller.photos = user.photoUser
+
+        }
     }
 }

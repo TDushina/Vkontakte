@@ -10,7 +10,7 @@ import UIKit
 
 class MyGroupsViewController: UITableViewController {
 
-    var myGroup = [Group]()
+    var myGroup: [Group] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class MyGroupsViewController: UITableViewController {
         let indexPath = allGroupController.tableView.indexPathForSelectedRow
         else { return }
         
-        let group = allGroupController.modelGroup.groups[indexPath.row]
+        let group = allGroupController.allGroups[indexPath.row]
         
         guard !myGroup.contains(group) else {return}
         myGroup.append(group)

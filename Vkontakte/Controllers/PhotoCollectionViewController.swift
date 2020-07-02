@@ -10,18 +10,13 @@ import UIKit
 
 class PhotoCollectionViewController: UICollectionViewController {
     
-    var photos = [UIImage]()
+    var photos: [UIImage?] = []
     
     @IBOutlet weak var photoCollection: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for i in 0...6 {
-            let photo = UIImage(named: "photo\(i)")!
-            photos.append(photo)
         }
-    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
@@ -29,8 +24,7 @@ class PhotoCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PhotoCell
-        let photo = photos[indexPath.item]
-        cell.photoView.image = photo
+        cell.photoView.image = photos[indexPath.row]
         
         return cell
     }
