@@ -12,6 +12,8 @@
 		C83C0B05249FF9D400754F32 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C0B04249FF9D400754F32 /* User.swift */; };
 		C83C0B0724A007BA00754F32 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C0B0624A007BA00754F32 /* FriendsTableViewController.swift */; };
 		C83C0B0924A00A1D00754F32 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83C0B0824A00A1D00754F32 /* UserTableViewCell.swift */; };
+		C8489ED224B0CCC800645E9B /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8489ED124B0CCC800645E9B /* LikeControl.swift */; };
+		C855D35724B0823000CCDD08 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855D35624B0823000CCDD08 /* AvatarView.swift */; };
 		C866BFEE24A36D6C00B207AD /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFED24A36D6C00B207AD /* Group.swift */; };
 		C866BFF324A36FE100B207AD /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFF224A36FE100B207AD /* MyGroupsViewController.swift */; };
 		C866BFF524A3702000B207AD /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C866BFF424A3702000B207AD /* AllGroupsViewController.swift */; };
@@ -30,6 +32,8 @@
 		C83C0B04249FF9D400754F32 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C83C0B0624A007BA00754F32 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		C83C0B0824A00A1D00754F32 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		C8489ED124B0CCC800645E9B /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
+		C855D35624B0823000CCDD08 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		C866BFED24A36D6C00B207AD /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		C866BFF224A36FE100B207AD /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsViewController.swift; sourceTree = "<group>"; };
 		C866BFF424A3702000B207AD /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 		C8322A1624A4F3CD00645B73 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C855D35524B0820500CCDD08 /* CustomView */,
 				C8322A1724A4F3D500645B73 /* Cells */,
 			);
 			path = Views;
@@ -112,6 +117,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C855D35524B0820500CCDD08 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				C855D35624B0823000CCDD08 /* AvatarView.swift */,
+				C8489ED124B0CCC800645E9B /* LikeControl.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
 		C882AE1624994904003D7F17 = {
 			isa = PBXGroup;
 			children = (
@@ -133,8 +147,8 @@
 			children = (
 				C882AE3024994907003D7F17 /* Info.plist */,
 				C882AE2824994904003D7F17 /* Main.storyboard */,
-				C8322A1324A4F14B00645B73 /* App */,
 				C8322A1524A4F2CF00645B73 /* Resources */,
+				C8322A1324A4F14B00645B73 /* App */,
 				C83C0B03249FF91800754F32 /* Models */,
 				C8322A1424A4F16800645B73 /* Controllers */,
 				C8322A1624A4F3CD00645B73 /* Views */,
@@ -215,8 +229,10 @@
 			files = (
 				C866BFEE24A36D6C00B207AD /* Group.swift in Sources */,
 				C866BFF324A36FE100B207AD /* MyGroupsViewController.swift in Sources */,
+				C8489ED224B0CCC800645E9B /* LikeControl.swift in Sources */,
 				C866BFF724A3717000B207AD /* MyGroupCell.swift in Sources */,
 				C8282F0C24A0B95E001EF693 /* PhotoCell.swift in Sources */,
+				C855D35724B0823000CCDD08 /* AvatarView.swift in Sources */,
 				C866BFF524A3702000B207AD /* AllGroupsViewController.swift in Sources */,
 				C882AE2724994904003D7F17 /* LoginFormController.swift in Sources */,
 				C882AE2324994904003D7F17 /* AppDelegate.swift in Sources */,

@@ -13,6 +13,7 @@ class PhotoCollectionViewController: UICollectionViewController {
     var photos: [UIImage?] = []
     
     @IBOutlet weak var photoCollection: UICollectionView!
+    @IBOutlet weak var likeControl: UIControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()

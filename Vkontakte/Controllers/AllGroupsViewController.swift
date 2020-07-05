@@ -8,12 +8,16 @@
 
 import UIKit
 
-class AllGroupsViewController: UITableViewController {
-
+class AllGroupsViewController: UITableViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var allGroups = Group.groups
+    var filteredGroups: [Group] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        filteredGroups = allGroups
     }
 }
     // MARK: - Table view data source
@@ -21,17 +25,26 @@ class AllGroupsViewController: UITableViewController {
 extension AllGroupsViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allGroups.count
+        return filteredGroups.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! AllGroupCell
-        let group = allGroups[indexPath.row]
+        let group = filteredGroups[indexPath.row]
         
         cell.allGroupNameView.text = group.nameGroup
         cell.allGroupImageView.image = group.imageGroup
 
         return cell
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            filteredGroups = allGroups
+        } else {
+            filteredGroups = allGroups.filter {$0.nameGroup.lowercased().contains(searchText.lowercased())}
+        }
+        tableView.reloadData()
     }
 
 }

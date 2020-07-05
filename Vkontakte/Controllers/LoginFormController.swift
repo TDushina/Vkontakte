@@ -57,30 +57,32 @@ class LoginFormController: UIViewController {
         scrollView.endEditing(true)
     }
     
-//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-//        if identifier == "Home" {
-//            let isValid = checkUserData()
-//            if !isValid {
-//                showErrorAlert()
-//            }
-//            return isValid
-//        }
-//        return true
-//    }
-//
-//    func checkUserData() -> Bool {
-//        return loginTextField.text == "user" && passwordTextField.text == "0000"
-//    }
-//    
-//    func showErrorAlert() {
-//        let alert = UIAlertController(
-//            title: "Ошибка",
-//            message: "Неправильный логин или пароль",
-//            preferredStyle: .alert
-//        )
-//        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-//        alert.addAction(action)
-//        present(alert, animated: true, completion: nil)
-//    }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "Home" {
+            let isValid = checkUserData()
+            if !isValid {
+                showErrorAlert()
+            }
+            return isValid
+        }
+        return true
+    }
+    
+    // MARK: - Login and password verification
+
+    func checkUserData() -> Bool {
+        return loginTextField.text == "user" && passwordTextField.text == "0000"
+    }
+    
+    func showErrorAlert() {
+        let alert = UIAlertController(
+            title: "Ошибка",
+            message: "Неправильный логин или пароль",
+            preferredStyle: .alert
+        )
+        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
 }
 
