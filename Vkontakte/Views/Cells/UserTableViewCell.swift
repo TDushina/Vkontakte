@@ -8,11 +8,10 @@
 
 import UIKit
 
-class UserTableViewCell: UITableViewCell {
+@IBDesignable class UserTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var avatarView: AvatarView!
-    
-
+    @IBOutlet weak var gradientView: GradientView!
 
 }

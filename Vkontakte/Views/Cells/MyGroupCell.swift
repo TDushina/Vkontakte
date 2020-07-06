@@ -12,5 +12,6 @@ class MyGroupCell: UITableViewCell {
 
     @IBOutlet weak var myGroupImageView: UIImageView!
     @IBOutlet weak var myGroupNameView: UILabel!
+    @IBOutlet weak var gradientView: GradientView!
 
 }

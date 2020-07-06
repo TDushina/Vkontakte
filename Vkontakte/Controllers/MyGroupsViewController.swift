@@ -22,7 +22,7 @@ class MyGroupsViewController: UITableViewController {
         let indexPath = allGroupController.tableView.indexPathForSelectedRow
         else { return }
         
-        let group = allGroupController.allGroups[indexPath.row]
+        let group = allGroupController.filteredGroups[indexPath.row]
         
         guard !myGroup.contains(group) else {return}
         myGroup.append(group)

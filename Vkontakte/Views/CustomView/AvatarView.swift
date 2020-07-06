@@ -8,7 +8,8 @@
 
 import UIKit
 
-@IBDesignable class AvatarView: UIView {
+@IBDesignable
+class AvatarView: UIView {
     
     @IBInspectable var shadowRadius: CGFloat = 1 {
         didSet {
@@ -44,6 +45,7 @@ import UIKit
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
+        imageView.backgroundColor = .green
         return imageView
     }()
     
@@ -56,13 +58,13 @@ import UIKit
 
     public override init(frame: CGRect) {
         super .init(frame: frame)
-        print(#function)
+//        print(#function)
         setup()
     }
     
     public required init?(coder: NSCoder) {
         super .init(coder: coder)
-        print(#function)
+//        print(#function)
         setup()
     }
     

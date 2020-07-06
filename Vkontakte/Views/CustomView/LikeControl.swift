@@ -8,7 +8,8 @@
 
 import UIKit
 
-@IBDesignable class LikeControl: UIControl {
+@IBDesignable
+class LikeControl: UIControl {
     
     @IBInspectable lazy var likeButton: UIButton = {
         let button = UIButton()
@@ -92,5 +93,4 @@ import UIKit
             likeCountLable.textColor = .gray
         }
     }
-    
 }
