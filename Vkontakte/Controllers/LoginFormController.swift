@@ -13,7 +13,8 @@ class LoginFormController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var labelVk: UILabel!
+
     @IBAction func fogotPasswordPressed(_ sender: UIButton) {
         print(#function)
     }
@@ -22,8 +23,8 @@ class LoginFormController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         NotificationCenter.default.addObserver(
             self,
@@ -69,7 +70,6 @@ class LoginFormController: UIViewController {
     }
     
     // MARK: - Login and password verification
-
     func checkUserData() -> Bool {
         return loginTextField.text == "user" && passwordTextField.text == "0000"
     }

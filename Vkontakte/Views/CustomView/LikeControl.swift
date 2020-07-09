@@ -11,7 +11,8 @@ import UIKit
 @IBDesignable
 class LikeControl: UIControl {
     
-    @IBInspectable lazy var likeButton: UIButton = {
+    @IBInspectable
+    lazy var likeButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -20,7 +21,8 @@ class LikeControl: UIControl {
         return button
     }()
     
-    @IBInspectable lazy var likeCountLable: UILabel = {
+    @IBInspectable
+    lazy var likeCountLable: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "\(likesCount)"
@@ -29,23 +31,26 @@ class LikeControl: UIControl {
         return label
     }()
     
-    @IBInspectable var likesCount: Int = 3210 {
+    @IBInspectable
+    var likesCount: Int = 3210 {
         didSet {
             likeCountLable.text = "\(likesCount)"
         }
     }
     
-    @IBInspectable var isLiked: Bool = false {
+    @IBInspectable
+    var isLiked: Bool = false {
         didSet {
             updateLike()
         }
     }
     
-    @IBInspectable lazy var stackView: UIStackView = {
+    @IBInspectable
+    lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.spacing = 2
+        stackView.spacing = 5
         return stackView
     }()
     
@@ -63,14 +68,6 @@ class LikeControl: UIControl {
     // MARK: - Constraints
     private func setup() {
         addSubview(stackView)
-        
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            stackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            stackView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
-            stackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0)
-        ])
-        
         stackView.addArrangedSubview(likeButton)
         stackView.addArrangedSubview(likeCountLable)
     }
@@ -92,5 +89,17 @@ class LikeControl: UIControl {
             likeButton.tintColor = .gray
             likeCountLable.textColor = .gray
         }
+        
+        likeButton.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: {
+            self.likeButton.transform = .identity
+        })
+        
+        UIView.transition(with: likeCountLable,
+                          duration: 1,
+                        options: .transitionCrossDissolve,
+                        animations: {
+                            self.likeCountLable.text = "\(self.likesCount)"
+                        })
     }
 }
