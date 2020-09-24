@@ -33,5 +33,4 @@ class CustomNewsCell: UITableViewCell {
         photoCollectionView.reloadData()
     }
     
-    
 }

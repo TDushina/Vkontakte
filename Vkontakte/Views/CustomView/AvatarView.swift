@@ -8,40 +8,46 @@
 
 import UIKit
 
-//@IBDesignable
+@IBDesignable
 class AvatarView: UIView {
     
-    @IBInspectable var shadowRadius: CGFloat = 1 {
+    @IBInspectable
+    var shadowRadius: CGFloat = 1 {
         didSet {
             updateShadow()
         }
     }
     
-    @IBInspectable var shadowColor: UIColor = .black {
+    @IBInspectable
+    var shadowColor: UIColor = .black {
         didSet {
             updateShadow()
         }
     }
     
-    @IBInspectable var shadowOpacity: Float = 1 {
+    @IBInspectable
+    var shadowOpacity: Float = 1 {
         didSet {
             updateShadow()
         }
     }
     
-    @IBInspectable var shadowOffSet: CGSize = .zero {
+    @IBInspectable
+    var shadowOffSet: CGSize = .zero {
         didSet {
             updateShadow()
         }
     }
     
-    @IBInspectable var avatarImage: UIImage? = nil {
+    @IBInspectable
+    var avatarImage: UIImage? = nil {
         didSet {
             imageView.image = avatarImage
             setNeedsDisplay()
         }
     }
     
+    @IBInspectable
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -49,6 +55,7 @@ class AvatarView: UIView {
         return imageView
     }()
     
+    @IBInspectable
     lazy var shadowView: UIView = {
         let view = UIView()
         view.clipsToBounds = false
@@ -66,9 +73,9 @@ class AvatarView: UIView {
         setup()
     }
     
-//    override class func prepareForInterfaceBuilder() {
-//        super.prepareForInterfaceBuilder()
-//    }
+    override class func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()

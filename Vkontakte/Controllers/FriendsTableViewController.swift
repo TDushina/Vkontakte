@@ -123,9 +123,7 @@ extension FriendsTableViewController {
         }
         
         label.frame = CGRect(x: 5, y: 5, width: 100, height: 30)
-        
         viewHeader.addSubview(label)
-        
         return viewHeader
     }
     

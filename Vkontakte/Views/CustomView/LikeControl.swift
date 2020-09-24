@@ -96,7 +96,7 @@ class LikeControl: UIControl {
         })
         
         UIView.transition(with: likeCountLable,
-                          duration: 1,
+                          duration: 0.3,
                         options: .transitionCrossDissolve,
                         animations: {
                             self.likeCountLable.text = "\(self.likesCount)"

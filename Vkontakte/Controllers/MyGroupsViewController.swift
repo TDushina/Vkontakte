@@ -31,7 +31,6 @@ class MyGroupsViewController: UITableViewController {
         
     
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myGroup.count
     }
@@ -41,7 +40,7 @@ class MyGroupsViewController: UITableViewController {
         let tmpGroup = myGroup[indexPath.row]
         
         cell.myGroupNameView.text = tmpGroup.nameGroup
-        cell.myGroupImageView.image = tmpGroup.imageGroup
+        cell.myGroupImageView.imageView.image = tmpGroup.imageGroup
 
         return cell
     }

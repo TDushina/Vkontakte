@@ -8,9 +8,10 @@
 
 import UIKit
 
-class AllGroupsViewController: UITableViewController, UISearchBarDelegate {
+class AllGroupsViewController: UITableViewController, UITextFieldDelegate {
+//UISearchBarDelegate
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var txtSearchBar: SearchView!
     
     var allGroups = Group.groups
     var filteredGroups: [Group] = []
@@ -20,10 +21,9 @@ class AllGroupsViewController: UITableViewController, UISearchBarDelegate {
         filteredGroups = allGroups
     }
 }
-    // MARK: - Table view data source
-
+// MARK: - Table view data source
 extension AllGroupsViewController {
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredGroups.count
     }
@@ -33,19 +33,30 @@ extension AllGroupsViewController {
         let group = filteredGroups[indexPath.row]
         
         cell.allGroupNameView.text = group.nameGroup
-        cell.allGroupImageView.image = group.imageGroup
+        cell.allGroupImageView.imageView.image = group.imageGroup
 
         return cell
     }
     
     // MARK: - SearchBar
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchText.isEmpty {
+//            filteredGroups = allGroups
+//        } else {
+//            filteredGroups = allGroups.filter {$0.nameGroup.lowercased().contains(searchText.lowercased())}
+//        }
+//        tableView.reloadData()
+//    }
+    
+    // MARK: - UITextFieldDelegates
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if txtSearchBar.textField.text!.isEmpty {
             filteredGroups = allGroups
         } else {
-            filteredGroups = allGroups.filter {$0.nameGroup.lowercased().contains(searchText.lowercased())}
+            filteredGroups = allGroups.filter {$0.nameGroup.lowercased().contains(String(textField.text!).lowercased())}
         }
         tableView.reloadData()
+        return false
     }
 
 }

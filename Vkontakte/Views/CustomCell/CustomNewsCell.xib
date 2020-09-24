@@ -17,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="left" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Uei-MB-ENR">
-                        <rect key="frame" x="0.0" y="0.0" width="142" height="70"/>
+                        <rect key="frame" x="0.0" y="0.0" width="152" height="70"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="p8g-V9-SLQ">
-                                <rect key="frame" x="0.0" y="0.0" width="142" height="70"/>
+                                <rect key="frame" x="0.0" y="0.0" width="152" height="70"/>
                                 <subviews>
                                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-sp-eNn" customClass="AvatarView" customModule="Vkontakte" customModuleProvider="target">
                                         <rect key="frame" x="20" y="10" width="50" height="50"/>
@@ -45,7 +45,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yOT-bR-9JM">
-                                        <rect key="frame" x="90" y="10" width="42" height="50"/>
+                                        <rect key="frame" x="100" y="10" width="42" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7H-Sx-Tam">
                                                 <rect key="frame" x="0.0" y="0.0" width="42" height="24"/>
@@ -62,6 +62,12 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Q7H-Sx-Tam" secondAttribute="trailing" id="1zv-qc-3IK"/>
+                                            <constraint firstItem="Q7H-Sx-Tam" firstAttribute="leading" secondItem="yOT-bR-9JM" secondAttribute="leading" id="XfQ-Da-0SA"/>
+                                            <constraint firstAttribute="trailing" secondItem="drI-9C-MOk" secondAttribute="trailing" id="pzo-NY-Soj"/>
+                                            <constraint firstItem="drI-9C-MOk" firstAttribute="leading" secondItem="yOT-bR-9JM" secondAttribute="leading" id="qnV-3s-dU6"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -69,7 +75,7 @@
                                     <constraint firstAttribute="bottom" secondItem="yOT-bR-9JM" secondAttribute="bottom" constant="10" id="EDZ-b2-2zk"/>
                                     <constraint firstAttribute="bottom" secondItem="vXz-sp-eNn" secondAttribute="bottom" constant="10" id="JWf-7D-vDf"/>
                                     <constraint firstItem="yOT-bR-9JM" firstAttribute="top" secondItem="p8g-V9-SLQ" secondAttribute="top" constant="10" id="Jv3-wV-107"/>
-                                    <constraint firstItem="yOT-bR-9JM" firstAttribute="leading" secondItem="vXz-sp-eNn" secondAttribute="trailing" constant="20" id="Jwv-Zb-ZDo"/>
+                                    <constraint firstItem="yOT-bR-9JM" firstAttribute="leading" secondItem="vXz-sp-eNn" secondAttribute="trailing" constant="30" id="Jwv-Zb-ZDo"/>
                                     <constraint firstItem="vXz-sp-eNn" firstAttribute="top" secondItem="p8g-V9-SLQ" secondAttribute="top" constant="10" id="SaD-Uk-gpP"/>
                                     <constraint firstItem="vXz-sp-eNn" firstAttribute="leading" secondItem="p8g-V9-SLQ" secondAttribute="leading" constant="20" id="zGK-x9-Mui"/>
                                 </constraints>

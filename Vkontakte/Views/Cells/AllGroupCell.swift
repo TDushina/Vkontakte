@@ -10,7 +10,7 @@ import UIKit
 
 class AllGroupCell: UITableViewCell {
 
-    @IBOutlet weak var allGroupImageView: UIImageView!
+    @IBOutlet weak var allGroupImageView: AvatarView!
     @IBOutlet weak var allGroupNameView: UILabel!
     @IBOutlet weak var gradientView: GradientView!
     
