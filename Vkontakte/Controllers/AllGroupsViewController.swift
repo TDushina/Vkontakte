@@ -11,7 +11,11 @@ import UIKit
 class AllGroupsViewController: UITableViewController, UITextFieldDelegate {
 //UISearchBarDelegate
     
-    @IBOutlet weak var txtSearchBar: SearchView!
+    @IBOutlet weak var txtSearchBar: SearchView! {
+        didSet {
+            txtSearchBar.textField.delegate = self
+        }
+    }
     
     var allGroups = Group.groups
     var filteredGroups: [Group] = []
