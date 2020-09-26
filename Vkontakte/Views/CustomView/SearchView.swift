@@ -10,8 +10,6 @@ import UIKit
 
 class SearchView: UIView, UITextFieldDelegate {
     
-    weak var delegate: UITextFieldDelegate?
-    
     var color: UIColor = .systemGray
     
     lazy var textField: UITextField = {
