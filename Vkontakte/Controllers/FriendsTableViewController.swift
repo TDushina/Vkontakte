@@ -10,6 +10,8 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
     
+    lazy var service = VKService()
+    
     var friends = User.users
         .sorted { (user1, user2) -> Bool in
             return user1.nameUser < user2.nameUser
@@ -21,6 +23,8 @@ class FriendsTableViewController: UITableViewController, UISearchBarDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        service.getFriends()
         
         filteredFriends = friends
         
@@ -39,6 +43,7 @@ class FriendsTableViewController: UITableViewController, UISearchBarDelegate, UI
         searchController.searchBar.placeholder = "Поиск"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

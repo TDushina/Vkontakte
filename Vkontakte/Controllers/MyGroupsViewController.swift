@@ -9,11 +9,15 @@
 import UIKit
 
 class MyGroupsViewController: UITableViewController {
-
+    
+    lazy var service = VKService()
+    
     var myGroup: [Group] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        service.getGroups()
     }
     
     @IBAction func addGroup(segue: UIStoryboardSegue) {

@@ -11,6 +11,11 @@ import UIKit
 class AllGroupsViewController: UITableViewController, UITextFieldDelegate {
 //UISearchBarDelegate
     
+    lazy var service = VKService()
+    
+    var allGroups = Group.groups
+    var filteredGroups: [Group] = []
+    
     @IBOutlet weak var txtSearchBar: SearchView!
     {
         didSet {
@@ -18,12 +23,11 @@ class AllGroupsViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
-    var allGroups = Group.groups
-    var filteredGroups: [Group] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredGroups = allGroups
+        
+        service.groupsSearch()
     }
 }
 // MARK: - Table view data source
