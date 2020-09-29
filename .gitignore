@@ -3,8 +3,5 @@ xcuserdata/
 *.xcworkspacedata file
 *.xcuserdata
 .build/
-Podfile
-*.lock
 Pods/
 *.xcworkspace
-*.storyboard
