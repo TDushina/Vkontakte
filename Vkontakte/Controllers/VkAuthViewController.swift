@@ -14,19 +14,44 @@ class VkAuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate
     var webView: WKWebView!
     
     let nextVC = LoginFormController()
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        setup()
 
-    override func loadView() {
+    }
+    
+    func setup() {
         let webConfiguration = WKWebViewConfiguration()
         webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        webView.uiDelegate = self
+        webView.navigationDelegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+//        setup()
+    }
+    
+    override func loadView() {
         view = webView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        webView.navigationDelegate = self
-        
+//        webView.navigationDelegate = self
+        cleanWebViewCookies()
+        setup()
         loadVkAuth()
+    }
+    
+    func cleanWebViewCookies() {
+        HTTPCookieStorage.shared.removeCookies(since: Date.distantPast)
+        WKWebsiteDataStore.default()
+            .fetchDataRecords(ofTypes: WKWebsiteDataStore.allWebsiteDataTypes()) {
+                records in records.forEach {
+                    record in WKWebsiteDataStore.default().removeData(ofTypes: record.dataTypes, for: [record], completionHandler: {})
+                }
+            }
     }
     
     func loadVkAuth() {
@@ -48,7 +73,7 @@ class VkAuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate
         let request = URLRequest(url: url)
         webView.load(request)
     }
-
+    
     // MARK: - WKNavigationDelegate
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         
@@ -68,20 +93,31 @@ class VkAuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate
                 return dict
         }
         
-        guard let token = params["access_token"] else { return }
-        debugPrint("Access token: \(token)")
-        
-        Session.instance.token = token
-        
-        // переход на следующий контроллер
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        if let nextVC = storyBoard.instantiateViewController(withIdentifier: "FriendsTableViewControllerID") as? FriendsTableViewController {
-            nextVC.modalTransitionStyle = .crossDissolve
-            nextVC.modalPresentationStyle = .overCurrentContext
-            present(nextVC, animated: true, completion: nil)
+        if let token = params["access_token"] {
+            
+            debugPrint("Access token: \(token)")
+            Session.instance.token = token
+            
+            // MARK: - Go to next VC
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            if let nextVC = storyBoard.instantiateViewController(withIdentifier: "TabBarID") as? UITabBarController {
+                nextVC.modalTransitionStyle = .crossDissolve
+                nextVC.modalPresentationStyle = .overCurrentContext
+                
+                present(nextVC, animated: true, completion: nil)
+            }
+            
+        } else {
+
+            let message = "Неправильный логин или пароль"
+            
+            let alert = UIAlertController(title: "Ошибка", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+            })
+            self.present(alert, animated: true)
         }
-        
+    
         decisionHandler(.cancel)
     }
     

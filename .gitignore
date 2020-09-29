@@ -1,1 +1,10 @@
-Vkontakte.xcodeproj/xcuserdata/tatanadusina.xcuserdatad/xcdebugger/
+xcuserdata/
+*.xcodeproj
+*.xcworkspacedata file
+*.xcuserdata
+.build/
+Podfile
+*.lock
+Pods/
+*.xcworkspace
+*.storyboard
