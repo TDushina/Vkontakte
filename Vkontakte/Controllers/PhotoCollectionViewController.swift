@@ -12,11 +12,15 @@ class PhotoCollectionViewController: UICollectionViewController {
     
     var photos: [UIImage?] = []
     
+    lazy var service = VKService()
+    
     @IBOutlet weak var photoCollection: UICollectionView!
     @IBOutlet weak var likeControl: UIControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        service.getPhotos()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

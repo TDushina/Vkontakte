@@ -1,4 +1,7 @@
-Vkontakte.xcodeproj/xcuserdata/tatanadusina.xcuserdatad/xcdebugger/
-Vkontakte.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
-Vkontakte.xcodeproj/project.xcworkspace/xcuserdata/
-Vkontakte.xcodeproj/xcshareddata/
+xcuserdata/
+*.xcodeproj
+*.xcworkspacedata file
+*.xcuserdata
+.build/
+Pods/
+*.xcworkspace
