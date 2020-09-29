@@ -17,7 +17,6 @@ class VkAuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate
     
     init() {
         super.init(nibName: nil, bundle: nil)
-//        setup()
     }
     
     func setup() {
@@ -37,7 +36,6 @@ class VkAuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        webView.navigationDelegate = self
         cleanWebViewCookies()
         setup()
         loadVkAuth()
