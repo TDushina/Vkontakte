@@ -17,8 +17,6 @@ class VkAuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate
     
     init() {
         super.init(nibName: nil, bundle: nil)
-        setup()
-
     }
     
     func setup() {
@@ -29,7 +27,7 @@ class VkAuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-//        setup()
+        setup()
     }
     
     override func loadView() {
@@ -38,7 +36,6 @@ class VkAuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        webView.navigationDelegate = self
         cleanWebViewCookies()
         setup()
         loadVkAuth()
@@ -63,7 +60,7 @@ class VkAuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate
             URLQueryItem(name: "client_id", value: "7609987"),
             URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
             URLQueryItem(name: "display", value: "mobile"),
-            URLQueryItem(name: "scope", value: "friends, photos, groups"),
+            URLQueryItem(name: "scope", value: "262150"),
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "v", value: "5.68")
         ]
