@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7A91E9E5114129676B0F4ECB /* Pods_Vkontakte.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D83CD0E5BA78DEC2E449B04 /* Pods_Vkontakte.framework */; };
 		C8013D7324B6B5BC006B5AC4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8013D7224B6B5BC006B5AC4 /* LoadingViewController.swift */; };
+		C817387A2523D80400FBECB9 /* VKResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81738792523D80400FBECB9 /* VKResponse.swift */; };
 		C8282F0A24A0B87B001EF693 /* PhotoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8282F0924A0B87B001EF693 /* PhotoCollectionViewController.swift */; };
 		C8282F0C24A0B95E001EF693 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8282F0B24A0B95E001EF693 /* PhotoCell.swift */; };
 		C82FEA3924B9FEA90003695B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82FEA3824B9FEA90003695B /* SearchView.swift */; };
@@ -40,6 +41,7 @@
 		C895813B24B68A5400B033CB /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C895813A24B68A5400B033CB /* LoadingView.swift */; };
 		C8CB1244251D587300590986 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CB1243251D587300590986 /* Session.swift */; };
 		C8D2615D24BB22B00093DF7F /* BigPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D2615C24BB22B00093DF7F /* BigPhotoViewController.swift */; };
+		C8DC698A25265AF0004FE4C7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DC698925265AF0004FE4C7 /* Photo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,7 @@
 		A73074457C11C50A96EA21A8 /* Pods-Vkontakte.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vkontakte.debug.xcconfig"; path = "Target Support Files/Pods-Vkontakte/Pods-Vkontakte.debug.xcconfig"; sourceTree = "<group>"; };
 		AB9AE906C519F6EBD67461AF /* Pods-Vkontakte.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vkontakte.release.xcconfig"; path = "Target Support Files/Pods-Vkontakte/Pods-Vkontakte.release.xcconfig"; sourceTree = "<group>"; };
 		C8013D7224B6B5BC006B5AC4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		C81738792523D80400FBECB9 /* VKResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKResponse.swift; sourceTree = "<group>"; };
 		C8282F0924A0B87B001EF693 /* PhotoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewController.swift; sourceTree = "<group>"; };
 		C8282F0B24A0B95E001EF693 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		C82FEA3824B9FEA90003695B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -80,6 +83,7 @@
 		C895813A24B68A5400B033CB /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C8CB1243251D587300590986 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C8D2615C24BB22B00093DF7F /* BigPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotoViewController.swift; sourceTree = "<group>"; };
+		C8DC698925265AF0004FE4C7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				C89074F3251F9FCE006BB18A /* VkAuthViewController.swift */,
-				C882AE2624994904003D7F17 /* LoginFormController.swift */,
 				C83C0B0624A007BA00754F32 /* FriendsTableViewController.swift */,
 				C8282F0924A0B87B001EF693 /* PhotoCollectionViewController.swift */,
 				C8D2615C24BB22B00093DF7F /* BigPhotoViewController.swift */,
@@ -134,6 +137,7 @@
 				C866BFF424A3702000B207AD /* AllGroupsViewController.swift */,
 				C871BFF724B2838E004FCE5A /* NewsTableViewController.swift */,
 				C8013D7224B6B5BC006B5AC4 /* LoadingViewController.swift */,
+				C882AE2624994904003D7F17 /* LoginFormController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -173,6 +177,7 @@
 			children = (
 				C871BFFB24B29E87004FCE5A /* Lorem.swift */,
 				C83C0B04249FF9D400754F32 /* User.swift */,
+				C8DC698925265AF0004FE4C7 /* Photo.swift */,
 				C866BFED24A36D6C00B207AD /* Group.swift */,
 				C871BFF924B29CBA004FCE5A /* News.swift */,
 				C8CB1243251D587300590986 /* Session.swift */,
@@ -229,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				C89074FA251FA428006BB18A /* VKService.swift */,
+				C81738792523D80400FBECB9 /* VKResponse.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -270,7 +276,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Татьяна Душина";
 				TargetAttributes = {
 					C882AE1E24994904003D7F17 = {
@@ -373,6 +379,7 @@
 				C866BFF524A3702000B207AD /* AllGroupsViewController.swift in Sources */,
 				C882AE2724994904003D7F17 /* LoginFormController.swift in Sources */,
 				C871BFFA24B29CBA004FCE5A /* News.swift in Sources */,
+				C817387A2523D80400FBECB9 /* VKResponse.swift in Sources */,
 				C82FEA3924B9FEA90003695B /* SearchView.swift in Sources */,
 				C882AE2324994904003D7F17 /* AppDelegate.swift in Sources */,
 				C89074FB251FA428006BB18A /* VKService.swift in Sources */,
@@ -385,6 +392,7 @@
 				C8013D7324B6B5BC006B5AC4 /* LoadingViewController.swift in Sources */,
 				C871BFFF24B2A4D5004FCE5A /* CustomNewsCell.swift in Sources */,
 				C871BFF824B2838E004FCE5A /* NewsTableViewController.swift in Sources */,
+				C8DC698A25265AF0004FE4C7 /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +444,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -496,6 +505,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

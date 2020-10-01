@@ -9,15 +9,37 @@
 import Foundation
 import UIKit
 
-struct Group: Equatable {
+class Group: Decodable {
+    dynamic var nameGroup: String
+    dynamic var imageGroupUrl: String
+    
+    // MARK: - Decodable
+    enum CodingKeys: String, CodingKey {
+        case nameGroup = "name"
+        case imageGroupUrl = "photo_50"
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.nameGroup = try container.decode(String.self, forKey: .nameGroup)
+        self.imageGroupUrl = try container.decode(String.self, forKey: .imageGroupUrl)
+    }
+
+}
+
+
+
+// MARK: - FAKE
+struct GroupFake: Equatable {
     var nameGroup: String
     var imageGroup: UIImage?
     
-    static let groups: [Group] = [
-        Group(nameGroup: "Book", imageGroup: UIImage(named: "book")),
-        Group(nameGroup: "Car", imageGroup: UIImage(named: "car")),
-        Group(nameGroup: "Cook", imageGroup: UIImage(named: "cook")),
-        Group(nameGroup: "Travel", imageGroup: UIImage(named: "travel"))
+    static let groups: [GroupFake] = [
+        GroupFake(nameGroup: "Book", imageGroup: UIImage(named: "book")),
+        GroupFake(nameGroup: "Car", imageGroup: UIImage(named: "car")),
+        GroupFake(nameGroup: "Cook", imageGroup: UIImage(named: "cook")),
+        GroupFake(nameGroup: "Travel", imageGroup: UIImage(named: "travel"))
     ]
 
 }

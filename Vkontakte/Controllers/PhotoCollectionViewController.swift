@@ -10,7 +10,7 @@ import UIKit
 
 class PhotoCollectionViewController: UICollectionViewController {
     
-    var photos: [UIImage?] = []
+    var photos: [Photo] = []
     
     lazy var service = VKService()
     
@@ -20,7 +20,10 @@ class PhotoCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        service.getPhotos()
+        service.getPhotos(callback: { [weak self] photos in
+            self?.photos = photos
+            self?.collectionView.reloadData()
+        })
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -29,7 +32,7 @@ class PhotoCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PhotoCell
-        cell.photoView.image = photos[indexPath.row]
+//        cell.photoView.image = photos[indexPath.row]
 //        cell.photoView.alpha = 0.5
         return cell
     }
@@ -44,7 +47,7 @@ class PhotoCollectionViewController: UICollectionViewController {
                 segue.identifier == "ShowBigPhoto",
                 let detailVC = segue.destination as? BigPhotoViewController
             else { return }
-            detailVC.photos = photos.compactMap { $0 }
+//            detailVC.photos = photos.compactMap { $0 }
             if let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
                 detailVC.currentIndex = selectedIndexPath.row
             }

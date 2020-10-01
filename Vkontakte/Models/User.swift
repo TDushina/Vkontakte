@@ -6,16 +6,40 @@
 //  Copyright © 2020 Татьяна Душина. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-struct User: Equatable {
+class User: Decodable {
+    dynamic var nameUser: String
+    dynamic var avatarUrl: String
+    dynamic var photoUrl: Photo?
+    
+    // MARK: - Decodable
+    enum CodingKeys: String, CodingKey {
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case avatarUrl = "photo_50"
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let firstName = try container.decode(String.self, forKey: .firstName)
+        let lastName = try container.decode(String.self, forKey: .lastName)
+        self.nameUser = firstName + " " + lastName
+        
+        self.avatarUrl = try container.decode(String.self, forKey: .avatarUrl)
+    }
+
+}
+
+// MARK: - FAKE
+struct UserFake: Equatable {
     var nameUser: String
     var avatar: UIImage?
     var photoUser: [UIImage?]
     
-    static var users: [User] = [
-        User(nameUser: "Иван Иванов",
+    static var users: [UserFake] = [
+        UserFake(nameUser: "Иван Иванов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
@@ -25,13 +49,13 @@ struct User: Equatable {
                 UIImage(named: "photo4"),
                 UIImage(named: "photo5"),
                 UIImage(named: "photo6")]),
-        User(nameUser: "Пётр Петров",
+        UserFake(nameUser: "Пётр Петров",
              avatar: UIImage(named: "man"),
              photoUser: [
                  UIImage(named: "photo2"),
                  UIImage(named: "photo3"),
                  UIImage(named: "photo4")]),
-        User(nameUser: "Анна Иванова",
+        UserFake(nameUser: "Анна Иванова",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo2"),
@@ -41,199 +65,199 @@ struct User: Equatable {
                  UIImage(named: "photo6"),
                  UIImage(named: "photo6"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Ольга Петрова",
+        UserFake(nameUser: "Ольга Петрова",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo4"),
                  UIImage(named: "photo5"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Алёна Иванова",
+        UserFake(nameUser: "Алёна Иванова",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo4"),
                  UIImage(named: "photo5"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Настя Смирнова",
+        UserFake(nameUser: "Настя Смирнова",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo4"),
                  UIImage(named: "photo5"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Анна Кузнецова",
+        UserFake(nameUser: "Анна Кузнецова",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo4"),
                  UIImage(named: "photo5"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Елена Соколова",
+        UserFake(nameUser: "Елена Соколова",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo4"),
                  UIImage(named: "photo5"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Марина Морозова",
+        UserFake(nameUser: "Марина Морозова",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo4"),
                  UIImage(named: "photo5"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Надежда Алексеева",
+        UserFake(nameUser: "Надежда Алексеева",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo4"),
                  UIImage(named: "photo5"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Нина Семёнова",
+        UserFake(nameUser: "Нина Семёнова",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo4"),
                  UIImage(named: "photo5"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Светлана Козлова",
+        UserFake(nameUser: "Светлана Козлова",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo4"),
                  UIImage(named: "photo5"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Юлия Николаева",
+        UserFake(nameUser: "Юлия Николаева",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo4"),
                  UIImage(named: "photo5"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Татьяна Степанова",
+        UserFake(nameUser: "Татьяна Степанова",
              avatar: UIImage(named: "woman"),
              photoUser: [
                  UIImage(named: "photo4"),
                  UIImage(named: "photo5"),
                  UIImage(named: "photo6")]),
-        User(nameUser: "Алексей Иванов",
+        UserFake(nameUser: "Алексей Иванов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Артём Смирнов",
+        UserFake(nameUser: "Артём Смирнов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Владимир Попов",
+        UserFake(nameUser: "Владимир Попов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Вадим Кузнецов",
+        UserFake(nameUser: "Вадим Кузнецов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Данил Петров",
+        UserFake(nameUser: "Данил Петров",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Денис Соколов",
+        UserFake(nameUser: "Денис Соколов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Дмитрий Михайлов",
+        UserFake(nameUser: "Дмитрий Михайлов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Егор Новиков",
+        UserFake(nameUser: "Егор Новиков",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Кирилл Фёдоров",
+        UserFake(nameUser: "Кирилл Фёдоров",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Леонид Морозов",
+        UserFake(nameUser: "Леонид Морозов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Максим Волков",
+        UserFake(nameUser: "Максим Волков",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Матвей Алексеев",
+        UserFake(nameUser: "Матвей Алексеев",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Никита Лебедев",
+        UserFake(nameUser: "Никита Лебедев",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Олег Семёнов",
+        UserFake(nameUser: "Олег Семёнов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Павел Егоров",
+        UserFake(nameUser: "Павел Егоров",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Роман Козлов",
+        UserFake(nameUser: "Роман Козлов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Пётр Павлов",
+        UserFake(nameUser: "Пётр Павлов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Сергей Степанов",
+        UserFake(nameUser: "Сергей Степанов",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),
                 UIImage(named: "photo1"),
                 UIImage(named: "photo2"),
                 UIImage(named: "photo3")]),
-        User(nameUser: "Станислав Николаев",
+        UserFake(nameUser: "Станислав Николаев",
              avatar: UIImage(named: "man"),
              photoUser: [
                 UIImage(named: "photo0"),

@@ -10,7 +10,7 @@ import UIKit
 
 class BigPhotoViewController: UIViewController {
     
-    var photos: [UIImage?] = []
+    var photos: [Photo] = []
     var currentIndex: Int?
     var photosCount: Int?
     
@@ -32,7 +32,7 @@ class BigPhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imageView.image = photos[currentIndex!]
+//        imageView.image = photos[currentIndex!]
         nextImageView.contentMode = .scaleAspectFit
         photosCount = photos.count
         photoCountLabel.text = "\(currentIndex! + 1) из \(photosCount!)"
@@ -62,7 +62,7 @@ class BigPhotoViewController: UIViewController {
             if canSlide(direction) {
                 let nextIndex = direction == .left ? currentIndex! + 1 : currentIndex! - 1
                 photoCountLabel.text = "\(nextIndex + 1) из \(photosCount!)"
-                nextImageView.image = photos[nextIndex]
+//                nextImageView.image = photos[nextIndex]
                 view.addSubview(nextImageView)
                 let offsetX = direction == .left ? view.bounds.width : -view.bounds.width
                 nextImageView.frame = view.bounds.offsetBy(dx: offsetX, dy: 0)
@@ -78,7 +78,7 @@ class BigPhotoViewController: UIViewController {
                 self.currentIndex = direction == .left ? self.currentIndex! + 1 : self.currentIndex! - 1
                 self.imageView.alpha = 1
                 self.imageView.transform = .identity
-                self.imageView.image = self.photos[self.currentIndex!]
+//                self.imageView.image = self.photos[self.currentIndex!]
                 self.nextImageView.removeFromSuperview()
             }
             animator.pauseAnimation()

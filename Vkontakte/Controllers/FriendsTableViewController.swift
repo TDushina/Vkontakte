@@ -12,27 +12,34 @@ class FriendsTableViewController: UITableViewController, UISearchBarDelegate, UI
     
     lazy var service = VKService()
     
-    var friends = User.users
-        .sorted { (user1, user2) -> Bool in
-            return user1.nameUser < user2.nameUser
-        }
-    var filteredFriends: [User] = []
+    var friends = [User]()
+        
+    var filteredFriends = [User]()
+    
     var sections: [String] = []
     var filteredSections: [String] = []
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+//        friends = user.sorted { (user1, user2) -> Bool in
+//            return user1.nameUser < user2.nameUser }
         
-        service.getFriends()
-        
+        //отправляем запрос для получения друзей
+        service.getFriends (callback: { [weak self] friends in
+            //сохраняем данные
+            self?.friends = friends
+            self?.tableView?.reloadData()
+        })
+
         filteredFriends = friends
         
         sections = Array(Set(friends.map ({
             String($0.nameUser.prefix(1))
             })
         )).sorted()
-        
+
         filteredSections = Array(Set(filteredFriends.map ({
             String($0.nameUser.prefix(1))
             })
@@ -43,7 +50,7 @@ class FriendsTableViewController: UITableViewController, UISearchBarDelegate, UI
         searchController.searchBar.placeholder = "Поиск"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +59,7 @@ class FriendsTableViewController: UITableViewController, UISearchBarDelegate, UI
       if let indexPath = tableView.indexPathForSelectedRow {
         tableView.deselectRow(at: indexPath, animated: true)
       }
+        
     }
 }
 
@@ -62,12 +70,12 @@ extension FriendsTableViewController {
         let letter = sections[section]
         return friends.filter { $0.nameUser.hasPrefix(letter)}
     }
-    
+
     func friendsInFilteredSections(_ filteredSection: Int) -> [User] {
         let filteredLetter = filteredSections[filteredSection]
         return filteredFriends.filter { $0.nameUser.hasPrefix(filteredLetter)}
     }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         if searchController.isActive {
             return filteredSections.count
@@ -87,23 +95,24 @@ extension FriendsTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
         
-        let friend = searchController.isActive ? friendsInFilteredSections(indexPath.section)[indexPath.row] : friendsInSection(indexPath.section)[indexPath.row]
+        let user = searchController.isActive ? friendsInFilteredSections(indexPath.section)[indexPath.row] : friendsInSection(indexPath.section)[indexPath.row]
+            
+        cell.userName.text = "\(user.nameUser)"
+        cell.avatarView.imageView.image = UIImage(systemName: "star.fill")
         
-        cell.userName.text = friend.nameUser
-        cell.avatarView.imageView.image = friend.avatar
-
+//        cell.avatarView.imageView.image =
         return cell
     }
     
     // MARK: - Animation
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-//        let translationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 400, 0)
-//        cell.layer.transform = translationTransform
-//
-//        UIView.animate(withDuration: 0.5, delay: 0.2, options: .curveEaseInOut, animations: {
-//            cell.layer.transform = CATransform3DIdentity
-//        })
+        let translationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 400, 0)
+        cell.layer.transform = translationTransform
+
+        UIView.animate(withDuration: 0.5, delay: 0.2, options: .curveEaseInOut, animations: {
+            cell.layer.transform = CATransform3DIdentity
+        })
         
         let degree: Double = 90
         let rotationAngle = CGFloat(degree * .pi / 180)
@@ -115,23 +124,23 @@ extension FriendsTableViewController {
         })
     }
     
-    // MARK: - Header section
+//     MARK: - Header section
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let viewHeader = UIView()
         viewHeader.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.5)
-        
+
         let label = UILabel()
         if searchController.isActive {
             label.text = filteredSections[section]
         } else {
             label.text = sections[section]
         }
-        
+
         label.frame = CGRect(x: 5, y: 5, width: 100, height: 30)
         viewHeader.addSubview(label)
         return viewHeader
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 35
     }
@@ -176,6 +185,21 @@ extension FriendsTableViewController {
         else { return }
         
         let friend = searchController.isActive ? friendsInFilteredSections(indexPath.section)[indexPath.row] : friendsInSection(indexPath.section)[indexPath.row]
-        controller.photos = friend.photoUser
+//        controller.photos = friend.photoUrl
     }
+}
+
+// MARK: - Get Image from url
+extension UIImageView {
+    func imageFromUrl(withUrl url: URL) {
+           DispatchQueue.global().async { [weak self] in
+               if let imageData = try? Data(contentsOf: url) {
+                   if let image = UIImage(data: imageData) {
+                       DispatchQueue.main.async {
+                           self?.image = image
+                       }
+                   }
+               }
+           }
+       }
 }

@@ -13,7 +13,7 @@ class AllGroupsViewController: UITableViewController, UITextFieldDelegate {
     
     lazy var service = VKService()
     
-    var allGroups = Group.groups
+    var allGroups: [Group] = []
     var filteredGroups: [Group] = []
     
     @IBOutlet weak var txtSearchBar: SearchView!
@@ -27,7 +27,12 @@ class AllGroupsViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         filteredGroups = allGroups
         
-        service.groupsSearch()
+        service.getGroups(callback: { [weak self] allGroups in
+            self?.allGroups = allGroups
+            self?.tableView.reloadData()
+        })
+        
+//        service.groupsSearch()
     }
 }
 // MARK: - Table view data source
@@ -42,7 +47,7 @@ extension AllGroupsViewController {
         let group = filteredGroups[indexPath.row]
         
         cell.allGroupNameView.text = group.nameGroup
-        cell.allGroupImageView.imageView.image = group.imageGroup
+//        cell.allGroupImageView.imageView.image = group.imageGroup
 
         return cell
     }

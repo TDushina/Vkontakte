@@ -36,7 +36,7 @@ class VkAuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cleanWebViewCookies()
+//        cleanWebViewCookies()
         setup()
         loadVkAuth()
     }
@@ -92,7 +92,7 @@ class VkAuthViewController: UIViewController, WKUIDelegate, WKNavigationDelegate
         
         if let token = params["access_token"] {
             
-            debugPrint("Access token: \(token)")
+//            debugPrint("Access token: \(token)")
             Session.instance.token = token
             
             // MARK: - Go to next VC
