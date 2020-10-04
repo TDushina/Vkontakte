@@ -97,10 +97,17 @@ extension FriendsTableViewController {
         
         let user = searchController.isActive ? friendsInFilteredSections(indexPath.section)[indexPath.row] : friendsInSection(indexPath.section)[indexPath.row]
             
-        cell.userName.text = "\(user.nameUser)"
-        cell.avatarView.imageView.image = UIImage(systemName: "star.fill")
-        
-//        cell.avatarView.imageView.image =
+
+        cell.userName.text = user.nameUser
+
+//        cell.avatarView.imageView.image = UIImage.loadData(user.avatarUrl)
+//
+//            if let imageData = try? Data(contentsOf: user.avatarUrl) {
+//                if let image = UIImage(data: imageData) {
+//                    self?.image = image
+//                }
+//            }
+    
         return cell
     }
     
