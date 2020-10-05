@@ -8,17 +8,17 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class GradientView: UIView {
     
-    @IBInspectable
+//    @IBInspectable
     var firstColor: UIColor = UIColor.clear {
         didSet {
             updateView()
         }
     }
     
-    @IBInspectable
+//    @IBInspectable
     var secondColor: UIColor = UIColor.clear {
         didSet {
             updateView()

@@ -18,7 +18,7 @@ class VKService {
         let path = "friends.get"
         let parameters: Parameters = [
             "fields": "photo_50",
-            "order": "name",
+//            "order": "name",
             "access_token": "\(session.token ?? "No token")",
             "v": "5.124"
         ]
@@ -26,13 +26,14 @@ class VKService {
         let url = baseUrl + path
         
         AF.request(url, method: .get, parameters: parameters).responseData { response in
+            
             guard let data = response.value else { return }
 //            debugPrint(data)
             
             do {
-                let friends = try JSONDecoder().decode(VKResponse<User>.self, from: data).items
-                callback(friends)
-                debugPrint(friends)
+                let response = try JSONDecoder().decode(VKResponse<User>.self, from: data).items
+                callback(response)
+                debugPrint(response)
             } catch {
                 debugPrint(error)
             }

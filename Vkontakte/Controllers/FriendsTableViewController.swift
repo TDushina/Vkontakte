@@ -6,14 +6,15 @@
 //  Copyright © 2020 Татьяна Душина. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import Alamofire
 
 class FriendsTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
     
     lazy var service = VKService()
     
     var friends = [User]()
-        
     var filteredFriends = [User]()
     
     var sections: [String] = []
@@ -25,15 +26,15 @@ class FriendsTableViewController: UITableViewController, UISearchBarDelegate, UI
        
 //        friends = user.sorted { (user1, user2) -> Bool in
 //            return user1.nameUser < user2.nameUser }
+        friendsSorted()
         
         //отправляем запрос для получения друзей
-        service.getFriends (callback: { [weak self] friends in
+        service.getFriends (callback: { [weak self] (friends) in
             //сохраняем данные
             self?.friends = friends
-            self?.tableView?.reloadData()
+            self?.filteredFriends = friends
+            self?.tableView.reloadData()
         })
-
-        filteredFriends = friends
         
         sections = Array(Set(friends.map ({
             String($0.nameUser.prefix(1))
@@ -44,13 +45,19 @@ class FriendsTableViewController: UITableViewController, UISearchBarDelegate, UI
             String($0.nameUser.prefix(1))
             })
         )).sorted()
-        
+
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Поиск"
         navigationItem.searchController = searchController
         definesPresentationContext = true
 
+    }
+    
+    func friendsSorted() {
+        let friendSorted = friends.sorted { (friend1, friend2) -> Bool in
+            return friend1.nameUser < friend2.nameUser
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,18 +98,20 @@ extension FriendsTableViewController {
             return friendsInSection(section).count
         }
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
         
-        let user = searchController.isActive ? friendsInFilteredSections(indexPath.section)[indexPath.row] : friendsInSection(indexPath.section)[indexPath.row]
-            
+        let friend: User = searchController.isActive ? friendsInFilteredSections(indexPath.section)[indexPath.row] : friendsInSection(indexPath.section)[indexPath.row]
 
-        cell.userName.text = user.nameUser
+        cell.userName.text = friend.nameUser
 
 //        cell.avatarView.imageView.image = UIImage.loadData(user.avatarUrl)
-//
-//            if let imageData = try? Data(contentsOf: user.avatarUrl) {
+//        if let avatarUrl = friend.avatarUrl, let url = URL(string: avatarUrl) {
+            
+//        }
+        
+//    if let imageData = try? Data(contentsOf: friend.avatarUrl) {
 //                if let image = UIImage(data: imageData) {
 //                    self?.image = image
 //                }

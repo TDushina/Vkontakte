@@ -9,7 +9,7 @@
 import Foundation
 
 class Photo: Decodable {
-    dynamic var photoUrl: [String]
+    dynamic var photoUrl: [String?]
 
     // MARK: - Decodable
     enum CodingKeys: String, CodingKey {

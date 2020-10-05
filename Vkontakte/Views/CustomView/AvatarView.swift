@@ -8,38 +8,38 @@
 
 import UIKit
 
-@IBDesignable
+//@IBDesignable
 class AvatarView: UIView {
     
-    @IBInspectable
+//    @IBInspectable
     var shadowRadius: CGFloat = 1 {
         didSet {
             updateShadow()
         }
     }
     
-    @IBInspectable
+//    @IBInspectable
     var shadowColor: UIColor = .black {
         didSet {
             updateShadow()
         }
     }
     
-    @IBInspectable
+//    @IBInspectable
     var shadowOpacity: Float = 1 {
         didSet {
             updateShadow()
         }
     }
     
-    @IBInspectable
+//    @IBInspectable
     var shadowOffSet: CGSize = .zero {
         didSet {
             updateShadow()
         }
     }
     
-    @IBInspectable
+//    @IBInspectable
     var avatarImage: UIImage? = nil {
         didSet {
             imageView.image = avatarImage
@@ -47,7 +47,7 @@ class AvatarView: UIView {
         }
     }
     
-    @IBInspectable
+//    @IBInspectable
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.clipsToBounds = true
@@ -55,7 +55,7 @@ class AvatarView: UIView {
         return imageView
     }()
     
-    @IBInspectable
+//    @IBInspectable
     lazy var shadowView: UIView = {
         let view = UIView()
         view.clipsToBounds = false

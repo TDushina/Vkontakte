@@ -305,15 +305,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70.333335876464844"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTl-d7-gpt" customClass="GradientView" customModule="Vkontakte" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70.333333333333329"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="firstColor">
-                                                    <color key="value" systemColor="systemBlueColor"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
                                         <view autoresizesSubviews="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2a-cF-InT" customClass="AvatarView" customModule="Vkontakte" customModuleProvider="target">
                                             <rect key="frame" x="10" y="10.000000000000004" width="50" height="50.333333333333343"/>
                                             <constraints>
@@ -336,9 +327,13 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfB-Ib-I7N">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vTl-d7-gpt" customClass="GradientView" customModule="Vkontakte" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70.333333333333329"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfB-Ib-I7N">
                                             <rect key="frame" x="80" y="25.333333333333329" width="314" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -357,7 +352,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="avatarView" destination="u2a-cF-InT" id="nKp-WQ-aMT"/>
+                                    <outlet property="avatarView" destination="u2a-cF-InT" id="Bwx-hl-HfL"/>
                                     <outlet property="gradientView" destination="vTl-d7-gpt" id="PL5-pt-97d"/>
                                     <outlet property="userName" destination="qfB-Ib-I7N" id="mgh-j4-rJC"/>
                                     <segue destination="A8P-YK-93K" kind="show" identifier="showPhotos" id="HI0-gb-U2e"/>
