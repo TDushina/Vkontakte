@@ -42,6 +42,13 @@
 		C8CB1244251D587300590986 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CB1243251D587300590986 /* Session.swift */; };
 		C8D2615D24BB22B00093DF7F /* BigPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D2615C24BB22B00093DF7F /* BigPhotoViewController.swift */; };
 		C8DC698A25265AF0004FE4C7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DC698925265AF0004FE4C7 /* Photo.swift */; };
+		C8E34C33252BB65400CC8025 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E34C32252BB65400CC8025 /* CoreDataStack.swift */; };
+		C8E34C37252BB77900CC8025 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8E34C35252BB77900CC8025 /* CoreData.xcdatamodeld */; };
+		C8E34C41252BBA1F00CC8025 /* UserLocalData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E34C3F252BBA1F00CC8025 /* UserLocalData+CoreDataClass.swift */; };
+		C8E34C42252BBA1F00CC8025 /* UserLocalData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E34C40252BBA1F00CC8025 /* UserLocalData+CoreDataProperties.swift */; };
+		C8E34C45252BC05800CC8025 /* LocalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E34C44252BC05800CC8025 /* LocalDataService.swift */; };
+		C8E34C49253080DC00CC8025 /* PhotoLocalData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E34C47253080DC00CC8025 /* PhotoLocalData+CoreDataClass.swift */; };
+		C8E34C4A253080DC00CC8025 /* PhotoLocalData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E34C48253080DC00CC8025 /* PhotoLocalData+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +91,13 @@
 		C8CB1243251D587300590986 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		C8D2615C24BB22B00093DF7F /* BigPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigPhotoViewController.swift; sourceTree = "<group>"; };
 		C8DC698925265AF0004FE4C7 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		C8E34C32252BB65400CC8025 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		C8E34C36252BB77900CC8025 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		C8E34C3F252BBA1F00CC8025 /* UserLocalData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserLocalData+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C8E34C40252BBA1F00CC8025 /* UserLocalData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserLocalData+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		C8E34C44252BC05800CC8025 /* LocalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataService.swift; sourceTree = "<group>"; };
+		C8E34C47253080DC00CC8025 /* PhotoLocalData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PhotoLocalData+CoreDataClass.swift"; path = "Vkontakte/Models/PhotoLocalData+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		C8E34C48253080DC00CC8025 /* PhotoLocalData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PhotoLocalData+CoreDataProperties.swift"; path = "Vkontakte/Models/PhotoLocalData+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +161,7 @@
 			children = (
 				C882AE2B24994907003D7F17 /* Assets.xcassets */,
 				C882AE2D24994907003D7F17 /* LaunchScreen.storyboard */,
+				C8E34C32252BB65400CC8025 /* CoreDataStack.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -175,12 +190,15 @@
 		C83C0B03249FF91800754F32 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C8E34C3E252BB9EB00CC8025 /* UserLocal */,
+				C8E34C4C253080E600CC8025 /* PhotoLocal */,
 				C871BFFB24B29E87004FCE5A /* Lorem.swift */,
 				C83C0B04249FF9D400754F32 /* User.swift */,
 				C8DC698925265AF0004FE4C7 /* Photo.swift */,
 				C866BFED24A36D6C00B207AD /* Group.swift */,
 				C871BFF924B29CBA004FCE5A /* News.swift */,
 				C8CB1243251D587300590986 /* Session.swift */,
+				C8E34C35252BB77900CC8025 /* CoreData.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -235,8 +253,27 @@
 			children = (
 				C89074FA251FA428006BB18A /* VKService.swift */,
 				C81738792523D80400FBECB9 /* VKResponse.swift */,
+				C8E34C44252BC05800CC8025 /* LocalDataService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		C8E34C3E252BB9EB00CC8025 /* UserLocal */ = {
+			isa = PBXGroup;
+			children = (
+				C8E34C3F252BBA1F00CC8025 /* UserLocalData+CoreDataClass.swift */,
+				C8E34C40252BBA1F00CC8025 /* UserLocalData+CoreDataProperties.swift */,
+			);
+			path = UserLocal;
+			sourceTree = "<group>";
+		};
+		C8E34C4C253080E600CC8025 /* PhotoLocal */ = {
+			isa = PBXGroup;
+			children = (
+				C8E34C47253080DC00CC8025 /* PhotoLocalData+CoreDataClass.swift */,
+				C8E34C48253080DC00CC8025 /* PhotoLocalData+CoreDataProperties.swift */,
+			);
+			name = PhotoLocal;
 			sourceTree = "<group>";
 		};
 		D3AA629416E6D563F86AA098 /* Frameworks */ = {
@@ -371,18 +408,24 @@
 				C866BFF724A3717000B207AD /* MyGroupCell.swift in Sources */,
 				C895813B24B68A5400B033CB /* LoadingView.swift in Sources */,
 				C8282F0C24A0B95E001EF693 /* PhotoCell.swift in Sources */,
+				C8E34C45252BC05800CC8025 /* LocalDataService.swift in Sources */,
 				C855D35724B0823000CCDD08 /* AvatarView.swift in Sources */,
 				C84BB94624B5A6CB008387B3 /* NewsPhotoCollectionCell.swift in Sources */,
 				C871BFFC24B29E87004FCE5A /* Lorem.swift in Sources */,
 				C8CB1244251D587300590986 /* Session.swift in Sources */,
 				C89074F4251F9FCE006BB18A /* VkAuthViewController.swift in Sources */,
+				C8E34C41252BBA1F00CC8025 /* UserLocalData+CoreDataClass.swift in Sources */,
 				C866BFF524A3702000B207AD /* AllGroupsViewController.swift in Sources */,
 				C882AE2724994904003D7F17 /* LoginFormController.swift in Sources */,
 				C871BFFA24B29CBA004FCE5A /* News.swift in Sources */,
+				C8E34C49253080DC00CC8025 /* PhotoLocalData+CoreDataClass.swift in Sources */,
+				C8E34C33252BB65400CC8025 /* CoreDataStack.swift in Sources */,
 				C817387A2523D80400FBECB9 /* VKResponse.swift in Sources */,
+				C8E34C37252BB77900CC8025 /* CoreData.xcdatamodeld in Sources */,
 				C82FEA3924B9FEA90003695B /* SearchView.swift in Sources */,
 				C882AE2324994904003D7F17 /* AppDelegate.swift in Sources */,
 				C89074FB251FA428006BB18A /* VKService.swift in Sources */,
+				C8E34C4A253080DC00CC8025 /* PhotoLocalData+CoreDataProperties.swift in Sources */,
 				C8282F0A24A0B87B001EF693 /* PhotoCollectionViewController.swift in Sources */,
 				C83C0B0724A007BA00754F32 /* FriendsTableViewController.swift in Sources */,
 				C866BFF924A3753E00B207AD /* AllGroupCell.swift in Sources */,
@@ -392,6 +435,7 @@
 				C8013D7324B6B5BC006B5AC4 /* LoadingViewController.swift in Sources */,
 				C871BFFF24B2A4D5004FCE5A /* CustomNewsCell.swift in Sources */,
 				C871BFF824B2838E004FCE5A /* NewsTableViewController.swift in Sources */,
+				C8E34C42252BBA1F00CC8025 /* UserLocalData+CoreDataProperties.swift in Sources */,
 				C8DC698A25265AF0004FE4C7 /* Photo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,6 +640,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C8E34C35252BB77900CC8025 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C8E34C36252BB77900CC8025 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = C8E34C36252BB77900CC8025 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C882AE1724994904003D7F17 /* Project object */;
 }

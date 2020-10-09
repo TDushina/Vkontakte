@@ -39,9 +39,11 @@ class VKService {
         }
     }
 
-    func getPhotos(callback: @escaping ([Photo]) -> Void) {
+    func getPhotos(id: String, callback: @escaping ([Photo]) -> Void) {
+        
         let path = "photos.getAll"
         let parameters: Parameters = [
+            "owner_id": "\(String(describing: session.userId))",
             "access_token": "\(session.token ?? "No token")",
             "v":          "5.124"
         ]
