@@ -8,10 +8,10 @@
 
 import UIKit
 
-class User: Decodable {
+struct User: Decodable {
     dynamic var nameUser: String
     dynamic var avatarUrl: String
-    dynamic var photoUrl: Photo?
+    dynamic var photoUrl: [Photo]?
     
     // MARK: - Decodable
     enum CodingKeys: String, CodingKey {
@@ -20,7 +20,7 @@ class User: Decodable {
         case avatarUrl = "photo_50"
     }
     
-    required init(from decoder: Decoder) throws {
+    init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         let firstName = try container.decode(String.self, forKey: .firstName)

@@ -39,3 +39,18 @@ class UserTableViewCell: UITableViewCell {
     }
 
 }
+
+// MARK: - Get Image from url
+extension UIImageView {
+    func imageFromUrl(withUrl url: URL) {
+           DispatchQueue.global().async { [weak self] in
+               if let imageData = try? Data(contentsOf: url) {
+                   if let image = UIImage(data: imageData) {
+                       DispatchQueue.main.async {
+                           self?.image = image
+                       }
+                   }
+               }
+           }
+       }
+}

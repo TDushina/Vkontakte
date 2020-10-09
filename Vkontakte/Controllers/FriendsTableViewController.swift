@@ -11,39 +11,44 @@ import UIKit
 class FriendsTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating {
     
     lazy var service = VKService()
+    lazy var localService = LocalDataService()
     
     var friends = [User]()
         
     var filteredFriends = [User]()
     
-    var sections: [String] = []
-    var filteredSections: [String] = []
+//    var sections: [String] = []
+//    var filteredSections: [String] = []
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-//        friends = user.sorted { (user1, user2) -> Bool in
-//            return user1.nameUser < user2.nameUser }
         
+        // MARK: - VKService
         //отправляем запрос для получения друзей
         service.getFriends (callback: { [weak self] friends in
             //сохраняем данные
             self?.friends = friends
+            self?.filteredFriends = friends
             self?.tableView?.reloadData()
         })
+        
+        // MARK: - LocalDataService
+        localService.saveFriendsLocal(friends: friends)
+        let localFriendList = localService.readFriendsList()
+        debugPrint(localFriendList)
 
         filteredFriends = friends
         
-        sections = Array(Set(friends.map ({
-            String($0.nameUser.prefix(1))
-            })
-        )).sorted()
+//        sections = Array(Set(friends.map ({
+//            String($0.nameUser.prefix(1))
+//            })
+//        )).sorted()
 
-        filteredSections = Array(Set(filteredFriends.map ({
-            String($0.nameUser.prefix(1))
-            })
-        )).sorted()
+//        filteredSections = Array(Set(filteredFriends.map ({
+//            String($0.nameUser.prefix(1))
+//            })
+//        )).sorted()
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
@@ -66,47 +71,47 @@ class FriendsTableViewController: UITableViewController, UISearchBarDelegate, UI
 // MARK: - Table view data source
 extension FriendsTableViewController {
     
-    func friendsInSection(_ section: Int) -> [User] {
-        let letter = sections[section]
-        return friends.filter { $0.nameUser.hasPrefix(letter)}
-    }
-
-    func friendsInFilteredSections(_ filteredSection: Int) -> [User] {
-        let filteredLetter = filteredSections[filteredSection]
-        return filteredFriends.filter { $0.nameUser.hasPrefix(filteredLetter)}
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        if searchController.isActive {
-            return filteredSections.count
-        } else {
-            return sections.count
-        }
-    }
+//    func friendsInSection(_ section: Int) -> [User] {
+//        let letter = sections[section]
+//        return friends.filter { $0.nameUser.hasPrefix(letter)}
+//    }
+//
+//    func friendsInFilteredSections(_ filteredSection: Int) -> [User] {
+//        let filteredLetter = filteredSections[filteredSection]
+//        return filteredFriends.filter { $0.nameUser.hasPrefix(filteredLetter)}
+//    }
+//
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        if searchController.isActive {
+//            return filteredSections.count
+//        } else {
+//            return sections.count
+//        }
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.isActive {
-            return friendsInFilteredSections(section).count
+//            return friendsInFilteredSections(section).count
+            return filteredFriends.count
         } else {
-            return friendsInSection(section).count
+//            return friendsInSection(section).count
+            return friends.count
         }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! UserTableViewCell
         
-        let user = searchController.isActive ? friendsInFilteredSections(indexPath.section)[indexPath.row] : friendsInSection(indexPath.section)[indexPath.row]
+//        let friend = searchController.isActive ? friendsInFilteredSections(indexPath.section)[indexPath.row] : friendsInSection(indexPath.section)[indexPath.row]
             
+        let friend = searchController.isActive ? filteredFriends[indexPath.row] : friends[indexPath.row]
 
-        cell.userName.text = user.nameUser
-
-//        cell.avatarView.imageView.image = UIImage.loadData(user.avatarUrl)
-//
-//            if let imageData = try? Data(contentsOf: user.avatarUrl) {
-//                if let image = UIImage(data: imageData) {
-//                    self?.image = image
-//                }
-//            }
+        cell.userName.text = friend.nameUser
+        
+        let url = URL(string: friend.avatarUrl)!
+        if let data = try? Data(contentsOf: url) {
+            cell.avatarView.imageView.image = UIImage(data: data)
+        }
     
         return cell
     }
@@ -132,34 +137,34 @@ extension FriendsTableViewController {
     }
     
 //     MARK: - Header section
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let viewHeader = UIView()
-        viewHeader.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.5)
-
-        let label = UILabel()
-        if searchController.isActive {
-            label.text = filteredSections[section]
-        } else {
-            label.text = sections[section]
-        }
-
-        label.frame = CGRect(x: 5, y: 5, width: 100, height: 30)
-        viewHeader.addSubview(label)
-        return viewHeader
-    }
-
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 35
-    }
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let viewHeader = UIView()
+//        viewHeader.backgroundColor = UIColor.systemBlue.withAlphaComponent(0.5)
+//
+//        let label = UILabel()
+//        if searchController.isActive {
+//            label.text = filteredSections[section]
+//        } else {
+//            label.text = sections[section]
+//        }
+//
+//        label.frame = CGRect(x: 5, y: 5, width: 100, height: 30)
+//        viewHeader.addSubview(label)
+//        return viewHeader
+//    }
+//
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 35
+//    }
     
     // MARK: - Control
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        if searchController.isActive {
-            return filteredSections
-        } else {
-            return sections
-        }
-    }
+//    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+//        if searchController.isActive {
+//            return filteredSections
+//        } else {
+//            return sections
+//        }
+//    }
 
     // MARK: - SearchController
     func updateSearchResults(for searchController: UISearchController) {
@@ -171,14 +176,14 @@ extension FriendsTableViewController {
     func filterContentForSearchText(_ searchText: String) {
         if searchText.isEmpty {
             filteredFriends = friends
-            filteredSections = sections
+//            filteredSections = sections
         } else {
             filteredFriends = friends.filter { $0.nameUser.lowercased().contains(searchText.lowercased())
             }
-            filteredSections = Array(Set(filteredFriends.map ({
-                String($0.nameUser.prefix(1))
-                })
-            )).sorted()
+//            filteredSections = Array(Set(filteredFriends.map ({
+//                String($0.nameUser.prefix(1))
+//                })
+//            )).sorted()
         }
         tableView.reloadData()
     }
@@ -191,22 +196,12 @@ extension FriendsTableViewController {
             let controller = segue.destination as? PhotoCollectionViewController
         else { return }
         
-        let friend = searchController.isActive ? friendsInFilteredSections(indexPath.section)[indexPath.row] : friendsInSection(indexPath.section)[indexPath.row]
+//        let friend = searchController.isActive ? friendsInFilteredSections(indexPath.section)[indexPath.row] : friendsInSection(indexPath.section)[indexPath.row]
 //        controller.photos = friend.photoUrl
+        
+        let friend = searchController.isActive ? filteredFriends[indexPath.row] : friends[indexPath.row]
+        controller.photos = friend.photoUrl ?? []
+
     }
 }
 
-// MARK: - Get Image from url
-extension UIImageView {
-    func imageFromUrl(withUrl url: URL) {
-           DispatchQueue.global().async { [weak self] in
-               if let imageData = try? Data(contentsOf: url) {
-                   if let image = UIImage(data: imageData) {
-                       DispatchQueue.main.async {
-                           self?.image = image
-                       }
-                   }
-               }
-           }
-       }
-}

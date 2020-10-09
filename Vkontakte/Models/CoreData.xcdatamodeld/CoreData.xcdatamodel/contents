@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="GroupLocalData" representedClassName="GroupLocalData" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="PhotoLocalData" representedClassName="PhotoLocalData" syncable="YES">
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="UserLocalData" representedClassName="UserLocalData" syncable="YES">
+        <attribute name="avatar" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="GroupLocalData" positionX="-36" positionY="9" width="128" height="73"/>
+        <element name="PhotoLocalData" positionX="-54" positionY="-9" width="128" height="58"/>
+        <element name="UserLocalData" positionX="-63" positionY="-18" width="128" height="73"/>
+    </elements>
+</model>
